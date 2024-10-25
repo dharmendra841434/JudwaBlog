@@ -53,7 +53,7 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, paddingBottom: keyboardOffset }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === "ios" ? "padding" : "padding"}
     >
       <ScrollView
         style={styles.conatiner}
@@ -112,7 +112,7 @@ const LoginScreen = () => {
               />
               <CustomInput
                 isPassword={true}
-                onChangeText={(t) => console.log(t)}
+                onChangeText={(t) => {}}
                 placeholder="Enter your password"
               />
               <View className="flex flex-col items-end mt-3 ">

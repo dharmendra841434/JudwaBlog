@@ -6,6 +6,7 @@ import {
   useColorScheme,
   StyleSheet,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import { blogs } from "@/constants/blogData/dummy";
@@ -69,13 +70,18 @@ const createStyles = (themeColors: any) =>
       width: "48%",
       alignItems: "center",
       margin: "1.2%",
-      // iOS Shadow
-      shadowColor: "white", // Shadow color
-      shadowOffset: { width: 0, height: 1 }, // Shadow offset (width, height)
-      shadowOpacity: 0.1, // Shadow opacity
-      shadowRadius: 1.8, // Shadow blur radius
-      // Android Shadow
-      elevation: 2, // Elevation for Android shadow
+      ...Platform.select({
+        ios: {
+          shadowColor: themeColors?.shadow,
+          shadowOffset: { width: 0, height: 1 }, // Shadow offset (width, height)
+          shadowOpacity: 0.1, // Shadow opacity
+          shadowRadius: 1.8, // Shadow blur radius
+        },
+        android: {
+          shadowColor: themeColors?.shadow,
+          elevation: 2, // Elevation value for Android
+        },
+      }),
       backgroundColor: themeColors?.background,
       padding: "2%",
       borderRadius: 10,

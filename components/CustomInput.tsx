@@ -1,9 +1,7 @@
 import {
   View,
-  Text,
   TextInput,
   StyleSheet,
-  Pressable,
   TouchableOpacity,
   Platform,
 } from "react-native";
@@ -71,7 +69,7 @@ const createStyles = (themeColors: any) =>
       marginStart: "2%",
     },
     inputbox: {
-      padding: isAndroid ? 9 : 16,
+      padding: isAndroid ? 12 : 16,
       color: themeColors?.text,
     },
   });
